@@ -14,6 +14,7 @@ namespace CorewebApiAngular
 {
     public class Startup
     {
+        //this a c
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +25,8 @@ namespace CorewebApiAngular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             services.AddControllers();
         }
 
