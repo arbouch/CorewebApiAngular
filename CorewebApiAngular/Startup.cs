@@ -2,19 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CorewebApiAngular.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace CorewebApiAngular
 {
     public class Startup
     {
-        //this a c
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +29,10 @@ namespace CorewebApiAngular
         {
 
 
-            services.AddControllers();
+            services.AddControllers();  
+          services.AddDbContext<PayementDetailContext>(options =>
+          options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
