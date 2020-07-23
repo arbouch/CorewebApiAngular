@@ -28,6 +28,14 @@ namespace CorewebApiAngular
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddJsonOptions(options => {
+                
+               // var resorver = options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+               var resorver = options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                });
+
+               
 
             services.AddControllers();  
           services.AddDbContext<PayementDetailContext>(options =>
