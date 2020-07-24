@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CorewebApiAngular.Models;
 
 namespace CorewebApiAngular.Models
 {
@@ -13,5 +14,6 @@ namespace CorewebApiAngular.Models
 
         }
         public DbSet<PayementDetail> PayementDetails { get; set; }
+        public DbSet<CorewebApiAngular.Models.Employé> Employé { get; set; }
     }
 }
