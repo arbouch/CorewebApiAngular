@@ -40,6 +40,7 @@ namespace CorewebApiAngular
             services.AddControllers();  
           services.AddDbContext<PayementDetailContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddCors();
 
         }
 
@@ -50,7 +51,7 @@ namespace CorewebApiAngular
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
 
             app.UseAuthorization();
