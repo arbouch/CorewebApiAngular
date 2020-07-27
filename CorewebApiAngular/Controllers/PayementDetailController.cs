@@ -27,21 +27,21 @@ namespace CorewebApiAngular.Controllers
             return await _context.PayementDetails.ToListAsync();
         }
 
-        //// GET: api/PayementDetail/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<PayementDetail>> GetPayementDetail(int id)
-        //{
-        //    var payementDetail = await _context.PayementDetails.FindAsync(id);
+        // GET: api/PayementDetail/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PayementDetail>> GetPayementDetail(int id)
+        {
+            var payementDetail = await _context.PayementDetails.FindAsync(id);
 
-        //    if (payementDetail == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (payementDetail == null)
+            {
+                return NotFound();
+            }
 
-        //    return payementDetail;
-        //}
+            return payementDetail;
+        }
 
-        // PUT: api/PayementDetail/5
+        //PUT: api/PayementDetail/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
